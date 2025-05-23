@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestão</title>
+  <link rel="stylesheet" href="styles/gestao.css">
+</head>
+<body>
+  <main>
+    <h1>Painel de Gestão</h1>
+
+    <!-- Adicionar novo menu -->
+    <section>
+      <h2>Adicionar Menu</h2>
+      <form id="adicionarMenuForm">
+        <input type="text" id="nomeMenu" placeholder="Nome do menu" required>
+        <input type="text" id="descricaoMenu" placeholder="Descrição" required>
+        <input type="number" id="precoMenu" placeholder="Preço (€)" step="0.01" required>
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
+    <!-- Lista de menus -->
+    <section>
+      <h2>Lista de Menus Disponíveis</h2>
+      <ul id="listaMenus">
+        <!-- Os menus serão listados aqui com botões de remover -->
+      </ul>
+    </section>
+
+    <!-- Lista de encomendas -->
+    <section>
+      <h2>Lista de Encomendas</h2>
+      <ul id="listaEncomendas">
+        <!-- Exemplo: Mesa 3 - Menu X (✔ / ✖) -->
+      </ul>
+    </section>
+
+    <a href="index.html">Voltar à página inicial</a>
+  </main>
+
+  <script src="scripts/gestao.js"></script>
+</body>
+</html>
