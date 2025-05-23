@@ -9,4 +9,3 @@ Gestao de encomendas e pagamentos no site para agilizar o processo.
 Diferentes tipos de utilizadores:
 Conta para a administracao do forma a conseguir gerir todas as encomendas e menus disponiveis.
 Conta para clientes para efetuar os seus pedidos.
-
