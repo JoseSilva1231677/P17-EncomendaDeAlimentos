@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Checkout</title>
+        <link rel="stylesheet" href="styles/checkout.css">
+
+
+    </head>
+    <body>
+        <main class="checkout-container">
+            <h1>Finalizar Compra</h1>
+            <form class="form-checkout">
+                <div class="campo">
+                    <label for="mesa">Mesa:</label>
+                    <select id="mesa" name="mesa">
+                        <option value="1">Mesa 1</option>
+                        <option value="2">Mesa 2</option>
+                        <option value="3">Mesa 3</option>
+                        <option value="4">Mesa 4</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="campo">
+                    <label for="contacto">Contacto:</label>
+                    <input type="text" id="contacto" name="contacto" required>
+                </div>
+                <button type ="submit" class="botao-finalizar">Finalizar Compra</button>
+                
+            </form>
+        </main>
+
+    </body>
+</html>
