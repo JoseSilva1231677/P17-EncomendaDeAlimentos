@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    // Criar hash da password
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     // Inserir novo utilizador
