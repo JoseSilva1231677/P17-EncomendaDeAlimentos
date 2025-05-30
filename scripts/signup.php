@@ -75,12 +75,12 @@ $db = new SQLite3('BDsignup.db');
  $sqlvar = "select * from Utilizadores ;";
 
  $result = $db->query($sqlvar); //(3)
- echo “<table>\n<th> Id </th><th> email </th>\n”;
+ echo "<table>\n<th> Id </th><th> email </th>\n";
  while ($row = $result->fetchArray(SQLITE3_ASSOC)) //(4)
  {
- echo ‘<tr><td>’ . $row['id'] . '</td><td>' . $row['email'] . '</td></tr>\n’;
+ echo '<tr><td>' . $row['id'] . '</td><td>' . $row['email'] . "</td></tr>\n";
  }
- echo ‘</table>’;
+ echo "</table>";
  unset($db);
 ?>
 
