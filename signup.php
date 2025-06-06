@@ -8,13 +8,12 @@ $db = new SQLite3('registoutilizadores.db');
  $sqlvar = "select * from utilizadores ;";
 
  $result = $db->query($sqlvar); //(3)
- echo “<table>\n<th> Id </th><th> email </th><th> password </th>\n”;
+ echo "<table>\n<th> Id </th><th> email </th><th> password </th>\n";
  while ($row = $result->fetchArray(SQLITE3_ASSOC)) //(4)
  {
- echo ‘<tr><td>’ . $row['id'] . '</td><td>' . $row['email'] . '</td><td>' . $row['password']
- . “</td></tr>\n”;
+    echo "<tr><td>{$row['id']}</td><td>{$row['email']}</td><td>{$row['password']}</td></tr>";
  }
- echo ‘</table>’;
+ echo '</table>';
  unset($db);
 
 
