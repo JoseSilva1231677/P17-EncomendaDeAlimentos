@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php include 'scripts/gestao.php'; ?>
     </section>
 
-    <a href="index.html">Voltar à página inicial</a>
+    <a href="index.php">Voltar à página inicial</a>
   </main>
 </body>
 </html>
