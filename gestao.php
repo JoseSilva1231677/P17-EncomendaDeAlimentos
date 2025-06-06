@@ -1,29 +1,34 @@
+<?php
+// Começa submissões de formulário no INÍCIO do ficheiro
+// (Isto corrigiu o erro onde a ordem de menus estava com bugs na criação)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $db = new SQLite3('menus.db');
+    
+    if (isset($_POST['add_menu'])) {
+        $menu = $_POST['new_menu'];
+        $price = $_POST['new_price'];
+        $db->exec("INSERT INTO Menus(menu, preco) VALUES('$menu', $price)");
+    } 
+    elseif (isset($_POST['delete_menu'])) {
+        $id = $_POST['delete_id'];
+        $db->exec("DELETE FROM Menus WHERE id = $id");
+    }
+    
+    unset($db);
+    header("Location: " . $_SERVER['PHP_SELF']); // Redirect to avoid resubmission
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>Gestão</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 20px 0;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-  </style>
 </head>
 <body>
   <main>
     <h1>Painel de Gestão</h1>
-
-    <!-- Form to add new menu -->
+    
+    <!-- Formulários Ad/Rem Menus -->
     <section>
       <h2>Adicionar Menu</h2>
       <form method="POST" action="">
@@ -33,7 +38,6 @@
       </form>
     </section>
 
-    <!-- Form to delete menu -->
     <section>
       <h2>Remover Menu</h2>
       <form method="POST" action="">
@@ -42,33 +46,10 @@
       </form>
     </section>
 
-    <!-- Menu list display -->
+    <!-- Lista dos menus disponíveis -->
     <section>
       <h2>Menus Disponíveis</h2>
-      <?php
-        // Include your database code
-        include 'scripts/gestao.php';
-        
-        // Handle form submissions
-        if (isset($_POST['add_menu'])) {
-            $db = new SQLite3('menus.db');
-            $menu = $_POST['new_menu'];
-            $price = $_POST['new_price'];
-            $db->exec("INSERT INTO Menus(menu, preco) VALUES('$menu', $price)");
-            unset($db);
-            header("Location: gestao.php");
-            exit();
-        }
-        
-        if (isset($_POST['delete_menu'])) {
-            $db = new SQLite3('menus.db');
-            $id = $_POST['delete_id'];
-            $db->exec("DELETE FROM Menus WHERE id = $id");
-            unset($db);
-            header("Location: gestao.php");
-            exit();
-        }
-      ?>
+      <?php include 'scripts/gestao.php'; ?>
     </section>
 
     <a href="index.html">Voltar à página inicial</a>
