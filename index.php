@@ -25,7 +25,7 @@
             while ($row = $results->fetchArray()) {
                 echo '
                 <div class="menu">
-                    <img src="images/provisório.png" alt="' . htmlspecialchars($row['menu']) . '">
+                    <img src="images/provisorio.png" alt="' . htmlspecialchars($row['menu']) . '">
                     <h3>' . htmlspecialchars($row['menu']) . '</h3>
                     <p>' . htmlspecialchars($row['preco']) . ' €</p>
                 </div>';
