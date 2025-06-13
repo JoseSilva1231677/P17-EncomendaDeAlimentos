@@ -1,30 +1,30 @@
 <?php
-$db = new SQLite3('registoutilizadores.db');
+// Mostrar erros (apenas em desenvolvimento)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
- // criação da tabela utilizadores
- $db->exec("CREATE TABLE utilizadores(id INTEGER PRIMARY KEY, email TEXT, password TEXT)"); //(1)
- $db->exec("INSERT INTO utilizadores(email, password) VALUES('user1@example.com', 'password1')"); //(2)
- echo "<h3>Tabela de utilizadores </h3>";
- $sqlvar = "select * from utilizadores ;";
+// Abrir ligação à base de dados no mesmo diretório
+$db = new SQLite3(__DIR__ . '/registoutilizadores.db');
 
- $result = $db->query($sqlvar); //(3)
- echo "<table>\n<th> Id </th><th> email </th><th> password </th>\n";
- while ($row = $result->fetchArray(SQLITE3_ASSOC)) //(4)
- {
-    echo "<tr><td>{$row['id']}</td><td>{$row['email']}</td><td>{$row['password']}</td></tr>";
- }
- echo '</table>';
- unset($db);
+// Criar a tabela se ainda não existir
+$db->exec("CREATE TABLE IF NOT EXISTS utilizadores (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE,
+    password TEXT
+)");
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Verificar se foi feito um POST (submissão do formulário)
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // Inserir dados com segurança (evita SQL injection)
     $stmt = $db->prepare("INSERT INTO utilizadores (email, password) VALUES (:email, :password)");
     $stmt->bindValue(':email', $email, SQLITE3_TEXT);
     $stmt->bindValue(':password', $password, SQLITE3_TEXT);
 
+    // Tentar executar o comando
     if ($stmt->execute()) {
         echo "Utilizador registado com sucesso!";
     } else {
