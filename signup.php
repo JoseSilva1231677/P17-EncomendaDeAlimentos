@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Tentar executar o comando
     if ($stmt->execute()) {
         echo "Utilizador registado com sucesso!";
+        echo "<a href='index.php'><button>Voltar à página inicial e faça login!! </button></a>";
     } else {
         echo "Erro: Este email já está registado.";
     }
