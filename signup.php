@@ -1,7 +1,5 @@
 <?php
-// Mostrar erros (apenas em desenvolvimento)
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Abrir ligação à base de dados no mesmo diretório
