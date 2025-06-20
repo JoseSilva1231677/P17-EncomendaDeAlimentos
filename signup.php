@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL); 
 
 // Abrir ligação à base de dados no mesmo diretório
 $db = new SQLite3(__DIR__ . '/registoutilizadores.db');

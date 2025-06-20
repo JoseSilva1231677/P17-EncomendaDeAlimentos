@@ -8,7 +8,7 @@
     <div class="container">
         <div class="login-container">
             <a href="login.html">Login</a>
-            <a href="signup.php">Signup</a>
+            <a href="signup.html">Signup</a>
             <a href="carrinho.html">Carrinho</a>
         </div>
 
